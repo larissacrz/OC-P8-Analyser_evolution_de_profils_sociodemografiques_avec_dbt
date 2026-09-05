@@ -1,0 +1,21 @@
+version: 2
+models:
+  - name: mart_demographics_comparison
+    description: Final analytical model comparing students' demographic profile with the French population
+    columns:
+      - name: region
+        description: Students region of residence
+        data_tests:
+          - not_null
+      - name: year_path_started
+        description: Start year of the study path
+        data_tests:
+          - not_null
+      - name: student_total
+        description: Total number of data students
+        data_tests:
+          - not_null
+      - name: population_total
+        description: Estimated total population of the region
+        data_tests:
+          - not_null

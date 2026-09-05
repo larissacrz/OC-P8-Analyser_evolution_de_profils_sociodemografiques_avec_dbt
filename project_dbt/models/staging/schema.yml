@@ -1,0 +1,64 @@
+version: 2
+models:
+  - name: stg_students
+    description: Staging model containing cleaned and normalized demographic students data
+    columns:
+      - name: user_id
+        description: Unique technical student identifier 
+        data_tests:
+          - not_null
+      - name: path_category_name
+        description: Category of the students study path 
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['data']
+      - name: age_group
+        description: Students age group at the start of the study path
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['20-24 ans', '25-29 ans', '30-34 ans', '35-39 ans', '40-44 ans', '45-49 ans', '50-54 ans', '55-59 ans','60 ans ou plus']
+      - name: gender
+        description: Gender declared by the student
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['M', 'F', 'unknown']
+      - name: region
+        description: Students region of residence
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Auvergne-Rhône-Alpes', 'Bourgogne-Franche-Comté', 'Bretagne', 'Centre-Val de Loire', 'Corse', 'Grand Est', 'Hauts-de-France', 'Île-de-France', 'Normandie', 'Nouvelle-Aquitaine', 'Occitanie', 'Pays de la Loire', "Provence-Alpes-Côte d''Azur", 'DROM']
+      - name: year_path_started
+        description: Start year of the study path
+        data_tests:
+          - not_null
+          
+  - name: stg_insee
+    description: Staging model containing cleaned and normalized French population data
+    columns: 
+      - name: region
+        description: List of french regions
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Auvergne-Rhône-Alpes', 'Bourgogne-Franche-Comté', 'Bretagne', 'Centre-Val de Loire', 'Corse', 'Grand Est', 'Hauts-de-France', 'Île-de-France', 'Normandie', 'Nouvelle-Aquitaine', 'Occitanie', 'Pays de la Loire', "Provence-Alpes-Côte d''Azur", 'DROM']
+      - name: year
+        description: Year of population estimate
+        data_tests:
+          - not_null
+      - name: population_total
+        description: Estimated total population of the region
+        data_tests:
+          - not_null
+      - name: population_male
+        description: Estimated total male population
+        data_tests:
+          - not_null
+      - name: population_female
+        description: Estimated total female population
+        data_tests:
+          - not_null

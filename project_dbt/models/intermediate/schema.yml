@@ -1,0 +1,25 @@
+version: 2
+models:
+  - name: int_students_deduplicated
+    description: Intermediate model containing unique students identifier
+    columns:
+      - name: user_id
+        description: Unique technical student identifier
+        data_tests:
+          - unique
+
+  - name: int_students_enriched
+    description: Intermediate model containing enriched data from INSEE
+    columns:
+      - name: region
+        description: Students region of residence
+        data_tests:
+          - not_null
+      - name: year_path_started
+        description: Start year of the study path
+        data_tests:
+          - not_null
+      - name: population_total
+        description: Estimated total population of the region
+        data_tests:
+          - not_null

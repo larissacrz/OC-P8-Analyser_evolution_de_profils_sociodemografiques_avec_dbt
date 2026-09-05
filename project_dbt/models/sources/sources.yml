@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: openclassrooms
+    schema: raw
+    tables: 
+    - name: students
+      description: Data sourced from openclassrooms internal student demographic information systems
+      columns:
+        - name: user_id
+          description: Unique technical student identifier
+        - name: path_category_name
+          description: Category of the students study path
+        - name: age_group
+          description: Students age group at the start of the study path
+        - name: gender
+          description: Gender declared by the student
+        - name: region
+          description: Students region of residence
+        - name: year_path_started
+          description: Start year of the study path
+
+  - name: insee_demographics
+    schema: raw
+    tables: 
+    - name: insee
+      description: Data sourced from INSEE public statistics on French population estimates 
+      columns:
+        - name: region
+          description: List of french regions
+        - name: annee
+          description: Year of population estimate
+        - name: total_population
+          description: Estimated total population of the region
+        - name: homme
+          description: Estimated total male population 
+        - name: femme
+          description: Estimated total female population
+        - name: ans_20_24
+          description: Population aged 20–24
+        - name: ans_25_29
+          description: Population aged 25–29
+        - name: ans_30_34
+          description: Population aged 30-34
+        - name: ans_35_39
+          description: Population aged 35-39
+        - name: ans_40_44
+          description: Population aged 40-44
+        - name: ans_45_49
+          description: Population aged 45-49
+        - name: ans_50_54
+          description: Population aged 50-54
+        - name: ans_55_59
+          description: Population aged 55-59
+        - name: ans_60_plus
+          description: Population aged 60 and over
